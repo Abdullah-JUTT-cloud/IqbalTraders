@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Iqbal Turmeric Traders - Premium Quality Turmeric from Changa Manga</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #f39d1283 0%, #e67d22fd 100%);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 5%;
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #f39c12;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .brand-name {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(243, 157, 18, 0.383), rgba(230, 126, 34, 0.9)), 
+                        url('https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=1600') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: white;
+            color: #e67e22;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: #f39c12;
+            color: white;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #e67e22;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #f39c12, #e67e22);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .owners {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 2rem 0;
+        }
+
+        .owner-card {
+            background: white;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .owner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(237, 145, 65, 0.813);
+        }
+
+        .owner-icon {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #030201, #070503);
+            border-radius: 10%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        #hi{
+            width: 240px;
+            height: 241px;
+            border-radius: 8%;
+        }
+
+        .owner-card h3 {
+            color: #e67e22;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .owner-card p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .description {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Product Cards */
+        .products {
+            background: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(230, 126, 34, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            color: #e67e22;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Health Benefits */
+        .benefits {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Image Slider */
+        .slider-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .slider-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .slider-btn {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #e67e22;
+        }
+
+        .slider-btn:hover {
+            background: #e67d22f9;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #f39c12;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #f39c12;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .slide {
+                height: 300px;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <div class="logo">🌿</div>
+            <span class="brand-name">Iqbal Turmeric Traders</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Quality Turmeric</h1>
+            <p>Serving Changa Manga for Over 10 Years</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <div class="owners">
+                <div class="owner-card">
+                    <div class="owner-icon"><img src="Untitled2.jpeg" alt="" id="hi"></div>
+                    <h3>Munwar Iqbal</h3>
+                    <p>Owner & Founder</p>
+                </div>
+                <div class="owner-card">
+                    <div class="owner-icon"><img src="Untitled.jpeg" alt="" id="hi"></div>
+                    <h3>Fawad Iqbal</h3>
+                    <p>Co-owner</p>
+                </div>
+            </div>
+            <div class="description">
+                <p>Welcome to <strong>Iqbal Turmeric Traders</strong> in Changa Manga, where we have been proudly serving our customers for over 10 years. We specialize in providing high-quality, pure turmeric that is grown and processed with care. Our goal is to deliver the best natural product that adds color, flavor, and health benefits to your life.</p>
+                <br>
+                <p>We mainly deal through cash and bank transfers, making it easy and simple for our local customers to do business with us. Over the years, we have built strong relationships with our buyers based on trust, quality, and honesty.</p>
+                <br>
+                <p>Our turmeric is known for its rich color, natural aroma, and purity. We believe in keeping things simple — no middlemen, no compromise, just genuine turmeric straight from our farms to you.</p>
+                <br>
+                <p>We thank our loyal customers who have supported us throughout this journey, and we look forward to welcoming new ones. Whether you are a local shop, a wholesaler, or an individual buyer, we are here to serve you with the best turmeric from Changa Manga.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title">Our Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=600" alt="Fresh Turmeric" class="product-image">
+                <div class="product-info">
+                    <h3>Fresh Turmeric Roots</h3>
+                    <p>Freshly harvested turmeric roots with maximum potency and natural oils. Perfect for grinding at home or immediate use in cooking.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1599639957043-f3aa5c986398?w=600" alt="Turmeric Powder" class="product-image">
+                <div class="product-info">
+                    <h3>Pure Turmeric Powder</h3>
+                    <p>Finely ground, pure turmeric powder without any additives. Retains the rich golden color and all natural health benefits.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA2gMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAEBQMGAAIHAQj/xAA7EAACAQMDAQYEBAQGAgMBAAABAgMABBEFEiExBhMiQVFhMnGBkRQjQqFiscHRBxUkUvDxouEWgrIX/8QAGwEAAgMBAQEAAAAAAAAAAAAAAwQBAgUABgf/xAAuEQACAgEDAgYCAAYDAAAAAAABAgADEQQSIQUxEyIjMkFhFFFxgZGhsfAVMzT/2gAMAwEAAhEDEQA/AOJba9xXpzWwHGa6dNAK3VefWsArZfeukialc9BWCMnoOlSqT0xx61IBsH5bdagTuJAuB1qTjG3PBrFBLeKPOT5VLKkaqAY9pqczgINswK2hjLSBQM5rcqoGVouBBDHucYdunyqJOJHJESMZ4XoK1WLAzRI24616EXFdLSIR8ZIrO7OelERsYmyUDD0qRGWQ+JduaidiCBMVm0njFWns/wBnkvNt1cj/AEu/agHDSt7HyA8zVkl/+PwukR0GGV0UDITjjH3PzrPv6glb7ANx+o3VorLF3CcuI/emlh2b1e+USW1m5RuhbiuiDQ+zl9KmoW1muV5MNu2AW88rjjHtVxt1tlCxQsoOPgHlVF6rSxC9j9yTonXvOMP2M1tYi8luox5A0la2kt52jnXay+WK+gZ2WND3gworjfbSeGfXp2j6Djj1p2u0uYGytVGRE4UDk+VeSTo2FUVqHyNrH7VukKAg5HNMQHeZtxHkedZzgDy8zRQhBAOfapGiTYRionYmlvHatbyGQncPhpVJ8Zx08qa3MH4a3Uebc49qWkZ6VM6QNWZNSMuMCtcV06BFPMVryelEYXgZrO6wwOaidiQhW9KwdeRRiqpPJrVoAW8I49TXZkYkHOK9APlU3dY5yMGt44SQcDNdmdtmkcix43Ln3zXs0izMODWzR7VyUFYi+IbRk+QrpPMktoEfxE8Lya9lPePuP0ouSIQxiHjd8TketCSgjnyqROM0ZONwrXvlTq2Mdc1YOzvZO91m2a/nJt9LRiHuCMlj6IPP59K6XoOl22mQ2wsba1a1iJcSXcIeQOf1Akdfes/VdRp0zbW5MPVpnsXI4nMNI7O69qwBstLuHQnh3AQfPLEcVadH7A3kE4l1s2/dIc9xDJvLexYcAfeugT30YkzPLvkI3NxnA9T6ClUuqXLXDwxokKj9UhBJ/pzWHd1e+5Sta7R+/nEfp0HILQK5hW3fDLHEka4hijGAi+QGKS3ICOrYJbOSTzTufU4Zo5YkiZdjY3tg7vl6UnCF2LnJCml6iw5aa6DjGJFpKvaTGROGDFunqc05imkN9HcRMRluQM9PMYoBVJ8A5B+LPlR+xrcw7hKHA/LEXnj1PlXWne2fmXwAI81i0utR04x2k0UFyy+GR1yPriuWan2M7TWW+W602a4jJ3fiLcd4re/HP7V03Tb7vpWheRyyc7JD4l4/ensMwY77acxOByyvg59CPOp0XU30TbLBlf8AEx9Vpd3afO4UKzK6kMpwwIwVrYkbsAHj1rvWpafp2tIf880yC7OMLdRAJKv/ANlqgdqv8N7mwgk1Hs/K2oWQ8UkZH50I+X6h8ufavT6fXUagemZm2UPX7pTI5SSMAYXimEcO9lCtyaWWaMXBPzxTUTFU+HBx1pswIg2sOXl2MR4Bt4pXiirkFmyCceeagIGPDXCSZDIvOa02H0qc7SOTXmamdA1t2k5JG0eVY0GOScYrBK4XNYXZutRgyMiYhxnHOfWvTvcYzxXsbgY46UQkyBgWX7VxE4HMjitpGTj96mjtZ0JGCKmWdNxCnr0Bor8UqAFzh8cjGaod36lxt/cFW0YoWkxny5qe1stjmdk4HC482qe0t21KcLbzAseSvTA8zTMpHFcIrD8qMYA8iagZk8RJcJ3e5nOXY81toGktq+s2tm7FUmlCsf4c80zuLZriYttTb7VJZibSLqHVI8AW0qnPUVc+2VA83M6KB/q5ILWSOOxtVEMNsrDEca+Z/iPUn3olkhuu7kLKRH8OCcKfX3PvUFpHZ3ds1/pxXFw5aXJyUY8lfb2qBpJzuWQ7IQfAETk9eORmvD6oWPexY8z0NKqUGyRXkVvGjxhZO73B5XVc5PufPr0qCWZbS1KLOLneQNkmPCp8vY8igL5ZXVJJcnO1guQMA+3yqTSxBZwjbhplXc6MQN4+vUjjNFCYXJOY1tAEGeJ4/iACnncK8jJLNgDHX4s5prNALmNZ8Ha55UnLfXBxQQPdrEpxwMnHT5VYPmFH1Ngs6x5RFkA5+LGR/wBmsubm/HdY3YVs7eT/ADrQgSMAG2vzwAQSMf8Av/mKJZJ/w4VpmbAzjqQPmPKo4E7E1guxHdq+9kdyEVtmemMgj6UXcySyTRPDtjuAQxZAVD+vFCwhplJdAVUB9+7O89M4opGZm8Q8LAYc/pb5+fyob4zxIIHeNbC8keOQNGD172NRjI/3D+oplYGS0u0kt2ZQRypJYH60m/HJbElFg/EsvAJK7vuKYabcyTQxvK0cbnIZAOD8qTLWVP4icRO1ODgcGVrt92YtLLWRfWKiOK+UytGvRX88ex649c1WbvTlWJQzY3cA+lXvX5X1m8WOFw0Np+Xn388fKq9qWnsdqq3wufLrxXtNPqvEqBbvMQ0FTiVKfTZzEZI9rYGDzS38IyjMrEE+WKvttpQmWNAVRuclhxXt32Tec7reZGz0GaG3UqUba7YhDpWIyBOdCPZJjnB9a32x/wAX2q7P2Nu8jKxkjzzQTdlbgMQY+h9KIOpaY9mgzpLf1KG452DJA9KwL065rdYJztZAeRzUv4acj4R680/kCKYMiMTHGBREURDKGXnrU9raSysikdOc01WyZJfEhLBegrmcCWVC090CzsroSx3kX5hwY2IPWj77SrKOICOVO8zg7hjFTW2m2z2h7yQwzBsjc3Joux043UoMjExqTuU9R/3SiatHJHbEO2nZRILPT106zWVQzXM+NvGSBWihNjd4X8wgx1NWBNnftJMjkYwgT0rRrJS4ISRY18R34Iq66hS22caCFzEscIEI38HzHnU11p6y2DxQqXJiOTjzoi4CNLgg4z4QBwacaRG1zIkccDOc4VccUSw7VzBpyZzvRtf1DQLr/TvlBxsbkY9CPMVctO7UaPqEgmLx6fqDcsbgM8fvt5yv70o7bdkbrSb15JVCRudyEHg58vn5VSrhTExDjb7Ui1ddww6xxWevzIZ1y9sHnla9tNk8WWzLC/eqenPhyB/9sedDraxtMLm4kWJYupPH0wfWuU22o3dnJ3lncywuON0bkGnUPb7tDBgS3MV2vmLmFX/fFKv0zPsaNr1IgYdZ0htQsbiaOKyCs2DuLFgFGPPBxUF9HydrAnllCtwflVIt/wDESRWbv9F01wwwxRXQn7MB+1GQf4iaenxaAgP8N24/mDSx6Vap8sMnUafuPEmc4a2ZkdVIOVz86PsZLdUiFxJ3ayMwiY8hhjOePLiq3/8A0HRW5bQH3eeLx8f/AJqC57daPLDGsfZ6MMhOxmlckE+fUVb/AI61hg/7/aWPUaviXFbK1h2tHMTuPhZ+NoJ8utHx6Jdli1huRzllfB7vkc5Pw1z9P8SbyBcWWn28ZxgM6gkD24oW67c9odSbbJeMFx8MQxUJ0x+7tBPr88LOmX0Wm6XbRnU7mGLaQ7mMqAx9Ao68+lVeftO+o3H4PR4zHEW8Vw45I/hXy+Z5qpMGvF3Tyu8nU7jk/vVn7GWffXiRIvgJ5IHOPOqnTV0qSBk/c5HZu54lz03ThaaWgQNnGTk9amaw8Y3hcL0B+VN5IQrQheVAzj0ApeWmZpWaMYZyBmgak2JWAh5lFILZmvcQQLuKhc+eetCSQDvg0ShQOeh5o9IZGX80J8gKkESqAAKwjaVJycmHBgEgu9hKiM+gwaXmC5yfyD96eMWB4HA9a83J61y3EfEvmcOjiMKMyPEcDGDxRtk07gb41bHt0zQ8YZzhgpA9RR8CDarFSGP6V8q+hueJhVjmMrOylEme7iYnnDDrTeXS2ZcyQqDnIaNsUutJpY2VVDhV5Y5zxTWHUFjZ4z3jEjOfb2rH1D6nPpnM0q1rPcSe30JCpdxhicgk9aONsIU2xps3dWx+9R2105RdpXk+EHrREF28sjxtFgKwz5jnp/Wsi19UhyxjIRX4EHBtbUARxnI46ZoDvZppGigV5pMbgiDJ+3/OlNr2G4kaI6eIuGxLubqvv7UZpPaC407bDdWkccedryrgDOeMcc03oNVWrZfkn7gb9M7r5P6QPROxGoXDCW+ItIz4tnDOfp0FX/S9KtNLh7u1jwcYZ25ZvmaWpr9uoV5riFAxIGWwPlUOv9pv8rsmlVAzsMKM/at8apHHeZf4zqcYkX+JCWMnZ+Zr2WNHUZj55J9B6187akwEmEfwHpxkfbyq661eXmoytdXsjSufU8KPQegqg3U+2eWJwMhyMYqF8zZEKfTXaZCVDZO36qahZR5HJ9DWzOG5FREn1BpgCLNj4nhU+1akZ/vXp3elehj5j7CrShE2RcjoPvUiReZ2j5tWgbP6T9hW6uBztb9qg5llEmjQgnaFPuOaJjXZ4mkI45GcZqGKWPaco3r1rVpVHOQD/DyfvQjk8QwAAzHdlMgcBUZi3Cj1P9a7D/h/pBitfxcilXkGEBHIWue/4Ydmp9a1I3ckRSwg5eRujt/tz5+9dqa4t7b8qOSJTgAKGA/aheCDyYRrjjAg85zL3mPD8PJ/550L3iJGGLA5qe8YK34ddoY4IDMBQV1pd9IkYSDeNv6GBBPzpDUdNr1Pc4l1tKCSi5ibhWFehgwyKAtuzuoK4MlvIqA5xuFN4dKvVjBePp5ZFYmt6O1IzVkw9d6MOeII4JrTuV9KMuLeSFN8iEDzxzj7VBuXzdPvWQ9dlfDDEYFgI4nFLS3vJpcyY2tzubo2emOKa2d6N6rLb97zyu3lcU3srW6ayIE00Ei42tnIx9aa2NosPQeM/ESvU+9eqv6jwQRA16bbggxZLJc3khtxa/lDyUYpvpPZma8CPcEQwquOOefb+9OdNsVunMky4ROoH6j6UXc6rGu+O0wSnBwOnsKDRdtr3twv6+TLuhZto5iHUr0W0ckGnRiLaChZlJdz06+Q4NBWxmm/US5BDNnaAceQ86DuHElzI0Awy7S+/wCLPP0/7qEalcLI0cRJjRviY9Tz09KCwazmaCIEXAjKwS8MzFrnEy43IG3YHX0o67srbU023HMmPiyeOh/tSlbp9hJnfdI52cfB0x8/L70+O8SrKki4YeNGHX1x6GlbtysCO85h8ys6vp981q8bIZIwefP6/Y1VtWvtTVbeKa4LrEURS3ACjyNdC1iFbuOOSGRlLDCPGThh6Gq3cad36FGXvHHTI/nT+j1O1fNK2J4iZMTWuqCS5NvOiEOxVQp5I9xUfZrsza6v2quzqjbNNtV3TZbbvJOAufoT9KNtdKWG9E+wo+07+RgemKqOuzXNzq89paPIVLeJEOAxHrW9pHUnI7TF11ZAxIO1Gn2ul61cW2nXaXdoGJhkHULno3uOnv1pVuJqa6tZbSTu54ypxwRgj71lrZyXL4XgeppwlcZmeA2cYkOfc16Gx1z96POjXPfNGFPhOORijtN0SJxIL3vO8I/K2DK+fWqNYijJMKtNjHAER94AP1ZraMNK+1M1Z9P7D3l54hJ4MDJHr5j2qyad2TGnLI6JCXUbRJNnEbYxwPNqG2orA4MKmltY8iVjs5i2eWFYIrmWYBcSICEAyScmnx0OxR4pJbaNhKwXKcAE/wBKM0js1ZIHjlvLhZ3Xb3ogDJkjknJ4FOrLsbqtpb3f4HUbC+sXXcsgcxMrLnbwcgeLHQ+VLMTYcqY2gWsbWE3sILYQCBbl2SIYWHvCVHyGaJ7I6/Y6e0purdROHOC3xDmudapPd6TII2uYZXyctC5IB+ZAP7UD/nMrDOST0NcK2nM6ngzr1/2gtJRLPYTiK5kk8ffsSOoHUcgeWfL+SrV+2MukSbEklF0BhzF0+h9PnXPJLxWEclrcOHXwtGygHkeI5B5rXVpbu6nIt4bi4llOMpGWyAMeQof4+bAZdbVFZyO0vV5/iretoTIhZNQEYQSA/qOMt08hVasu2WoTzpa6pqF5PYzN+ejHvCwx70mu9C120tu/vNHvIoh1d4jjHz8qXQyCM4eGbGME+1NbMCLBwT5cS5X2pm81NzZyXS92F/DyyNtcKBzjHA5zwKLXtJrCqF/zWU4GMmHdn645+dZ2N0CDVVgS7uvArbkTpn23eX/Oa6QvZm2VQo022wBgZVTWbceeE3RtWAGGiod2oIUZHvzWGRsZCbvLk8V4GRU2hQ7DoBXktwwj4IGBzgV5sDmP7eMxvd3UOn6XDEZO7lZc4Xr5bv51VL429/J3hu5BGuN6lCRz0HHyNWLtRptzqem291ZOSAgLrjOQaq8en29qpkjuDI7Dxd43Hy46fWte5drAnj9QelKleO81kjtt8iWoLjqz55Zvc1BLayAbnVeDnjn5VOjxXMz3CtwoAcKjEjocDPAHv7V67M7AKNwXjg/LgHzofIMayIPbtblmhHDKMbjjBp1YOHgWG63BlIKSHzx7+opPLbJdxsNm11PxBj+9G20txF3pMhACYVCRhm8iB6/aqWAOOO8FZdXWPOwH84wiM0IkXCvFJlkjUBWHPPHnQNzeRWQLyAgt0VhzRttcwQwNc3U/5SciFF3OG9scBfnVQ11Jr+4adCFhZt0YznH966rT7jluBMPqurR6dlbdz8Qy/wBVh1C1njtkEF0E8MmOD8/71LofZWO30KR7iNfxV2pEszfpJ8hSixjeKZDNGGV+CyjI/vVotb+3g0uS41eTdBHmOKHAwxz5e/WtOv0x4adon06/kq5yBKXqGkf69ra5hVUAJBGMY9QRS19RfSLmS3ito9oPhcRhjj5kGn97qv4+6/KVEiXOMfpHzrWGXewFvEuB1dh/ejpay+4Zl9Rr0z6Y/nEdlrs968kc5eV+vAAKgeR9BVi04EfgZZYsRyjvJDj4EHT6nI5rd4bOZdt1H3m4YYoMfuK2vrX8RYCG1uRhFwkchPH7VJsR/iWo6iB7o40ztFYOzRLiMRhjsHRiPM+1JrvtWlxHH3RwYXJ2BQQ2T1qkahp2o2x8UDnHVo2BB+1T2fZ/XJIu9W0kiiU8PIcAfTr+1G8FNuSY2mrLOCgzLR/nCWsBuYZCJHOO7AO1RgBsfzqr3+q3t5vN3fXEjKSQjyHavyHQVPbaXqNwRFES7bjuQAjB9DVv0LsU8ZE99GWlQBx3mCFHHQVO5a145lzU9rc8D7lNj7P6xd2ERtbMyCQ72Y7cr6denqaIi7E9otuXtoU46tKP6V2JYbO1UTXAVZowBMAeWQkAHj06/eprtLS+R44nG5UKnaOpqDe+OAJC0JvwSZyrs12Pmvbzu5r+DEZO9IvFn5E/Tyq6afp+paS5XTrySCIHpn+/86qNrcXOidpnhjZlaM7+R8sg+1WzWu0aTwK9swwy7iT5jHShWbmwxMZrCoSgEuT6rIYIYLlxIs0bCTncMjHrz0NUHWdJtotQdUQCNSNiqOBxVY1XtXOL6xnSRlWDcCueoPWnWn9pLa+CSXFvuZ+C5dgAR06fzqtqMUyJbTtXXYVxH/ZS6tbOaWx7sYbxJ5NnqaftrQViv5nBx0rmWp2Gqy6kZdMdUQsGDiTDqMdOuMdfvU5XWgcGSLPvMmaqGVVHM5q9znKxxam6ncSElFAxjHn9aI1G6WyhV5WBk8lPQ0dNOtvGwI98eVc71rUTdzGQP3Khjgpzn2NZGnpOofOMCEZ1qHJl+7J9tILUC01GTMXUOP0EnzHpVjnsNE1XM9hPbiVjk4fCk+uK4FJePkhBnnk81ANUvbRj+GuHjJ9G6VvHTC1drTJN/htvWdn1DS20lZUa8jSCRSBtkBfn+HGT9arn4u1tFZQWZmxl3bn+3NUD/P8AU5Dumu3f1LUVbapHOQLg92fJxyD86TPT2XPPEU1HUdTYMA4H13lru9ZMcRaOPK+ueB9qVtrU8hBDbVz5UGwbGY3GD0YHg1rHazbmZUGD6dP/AFUpRUveZRAJyxyY9s728JDQEM/XqDmvV1W0gLJeJ+HQknlfCD/QUsi0+/eQGzinV8Z56H+lDaws0MTreTq7AeJRz+9SKK3OJHhqeJYLnUbXuH7hwyqAzbGzx61WtYubq4mhtwfyU8aKOgz/AFojQDbRRLGVVEb4/fPrU/aJGms/xluAstqdvh816c1emsV2bRCV+mdogtnACuJJeOpQcZoiW5SIEBV+Tc1WZNQll53kEeYrU3Mj/E5PuaZNB+TCbCY6e7Z34kI9FLGvVvAqHczDHv1pKJGI55rSWRnUrnGfSrCjMsK8xqdSbIdWP5a5znJBqzdmdUwRHvaUFwVZ/PP9aoluUA3TEEKcDnByc0Zb6nJDnBJyMZq1lWV24mto3FPOZ114bMvJMsYW4HDYOCcfLrSzUtYeJijy4j2DpnA/91UdJ11Le3mubi4Tduxt70bvbw5yfoOPalGv9oJb2XbZySmLzLLgN8h5UrVprS5HxNG7V0hA3zHHaLtFMrrHHMzoR4stn3xQOla9ercrKk7KXYjK8sD9aqsjyOTvJzUtnKY5ly20E8n0p/wAq4mX+UXszOmBpNXk7/UUZ7lQBHIjgv7Bh6VStX1O7tppbJwYzExUrjGDmrPp19EqwRrL4Vwcgf8AP3qHt9Z20tvaXiHM7OVdtoGVxkZ+VI0WetsYd5patPR3Ie0oMs7yHczEtV67B6pYWVtPJfxxySEeEugYKo9PeqXJb54FYDcQqUG8KeoHpWjZWHXEyabTW+4zr2s3fZk7JLaWSa8lGYraJ/PGSMgcenPnVNm1z86T/TSL4jw2Mj58VUkEsjAYJyfOifw5/wBn/gaXGlrU+aMHWWn2zoOtNenShEWbvJPj/hz+n6D+dVCezu7Y75IGC/p3AjIPvV4u3eSxkdo2R2HhGetVRry51BzHcu+xeDg+XTAHqTXLW6dlAEozow5PMVhniHCbdwoK4k3HFWyPSZLqNlB8AHLLg5I88dalHZQNhZbjKFCyhVHJ+tQdTShwe8qKbGHHaUjcQ3Fbd5zg4+tWWHQF74rIcdcBRk5HkR8v5VrfaJbIZTGzbVjBBPHi9KsNTWTgQR0rYyYqsdVmtDhChT0YZFWfStdW4Aja5FuemUiUfviq+dFVAuWAOASM8/vU9lpsEczh0ZwozyTkVS6ut1JgDpN3AjzV75bYYe/dyeiu4IPvgVUru976X4mZc/F61ZZ9JsQojtoG71se5Of+GhJNDRzhiE8lx/KhUGpVll0LJ9xfHO0SbRxzkUytLxZZHilbwzLz9a9/+P3DxDuF70DptGTj5VBHpkqygNuUqccjFSbK27GCelwcERJqNubO9eLqvVfkaiEo8kNW1+zN1eSmVNrpjqeP51DL2fMW0S7AT196YXUVEcnmM/jWAciVgyM3wjFZhzVmj0mItuJyPTGKklsIlQNswR+5oq2L2EjwiJVArZ6Vv3Lv0B+lWP8Ayu2VCXRnbPkcYPnmpolUbU53rz6/f6UXIldp+ZXLeydzgjinFtpq93gDcoHTGcnypjDDFuPdb/FyTgD7UQiPgCMjvM7seo5H96VusYA4jNNanvEU3Zy6VWlaFio54GaATQ7iaXZEACBuOfIV03TxqT2/gEaEjhmz/Kg7Xs9Ob5pJom8WN3iwD16eVZ9fUH8wJGRHH0aDBEp8Wg65aKzwiOQAf761lg1Iw9xf7lZPEEJzXTV0m4SN1FsBDgdG5+9LU7NXE8hElspydu4k5Axk1avVWMclZL1IBgMZz/T7GS5uhGIZHXPi7tckD1rpNr/h/pF5pYXNxHIRuE2RkHyyMU/0zs7Dp4RoYYgpIDhm5UEcY9TnH3p3IQkLADJBPTjG3/qnAXswcERI7U47zjuodi7jSbpCpa5iY4BVTn64HH/qj0srlUUCKIAADBQ8ftXRLjB3BjkYxn06AfuTQ2Izzkj7f2pHWeOG4xGqGrCykaizC6WLcSFCgHz5oxtFs5haja0e6NWJTAOS2M9OuMj6mvKytqz/AK5nJ74l04NHYXUiSuGTaBzwevNAySSCEnvGwAPDnisrKy9oJb+MeyQqxnJcMIwdqEibuMlR8OB+9L79QSOvhUbeelZWUGsYaWb2wq2sLebSvxDKVct+ngfb6040nSrbuMjcNxw2COeM1lZQNQ7BW5+YetRlePiG6nbLFCrRPIpDAAhumfTNAWsQE4O5j6g+fB/sK8rKUqY7Yw4G6WGC0hRF2rj5cdRUVxaQyJudN2Djn/ntWVlABOZJUERTewrawGWHKnJ48uKSzlohwxbwg5b+Ic1lZWrSOTFGPEyyPUjjGSB8ula3Yygz1d1yfTisrK0U98Uf2yNsO0mVHAL8cZPrQEbHvGJwSRjJHT/mK8rKZEBHtlBFFal9gZvVqK06TffXAKIAoRRhfQD+9e1lYOpYndNXTgeWO9Nkka7ZWclMfCcYFWawtIZBll/SelZWVmL/AOkR3VcLJ72Q6e223C8FRlhnrj+9SQytJNOGxwCQcefArKytDTMfySvxMywenn6kyAbgABjvduPbYf7Cgrg4hTHHGP8AzArKyvQiZ0CuPBOgH6uv3J/nUPi/3t968rK811Nm8XvNTTAbJ//Z" alt="Organic Turmeric" class="product-image">
+                <div class="product-info">
+                    <h3>Organic Turmeric</h3>
+                    <p>Grown without chemicals or pesticides, our organic turmeric is perfect for health-conscious customers seeking natural purity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <h2 class="section-title">Health Benefits of Turmeric</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">💪</div>
+                <h3>Anti-Inflammatory</h3>
+                <p>Natural compounds help reduce inflammation in the body</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Antioxidant Power</h3>
+                <p>Rich in antioxidants that protect cells from damage</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🧠</div>
+                <h3>Brain Health</h3>
+                <p>Supports cognitive function and memory</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">❤️</div>
+                <h3>Heart Health</h3>
+                <p>Promotes cardiovascular wellness</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🦴</div>
+                <h3>Joint Support</h3>
+                <p>Helps maintain healthy joints and mobility</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">✨</div>
+                <h3>Skin Glow</h3>
+                <p>Natural beauty enhancer for radiant skin</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Slider -->
+    <section class="slider-section">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <div class="slide">
+                    <img src="1.jpg" alt="pic1">
+                    <div class="slide-caption">Our Beautiful Turmeric Farms</div>
+                </div>
+                <div class="slide">
+                    <img src="process.jpeg" alt="pic2">
+                    <div class="slide-caption">Quality Processing & Packaging</div>
+                </div>
+                <div class="slide">
+                    <img src="3.jpg" alt="pic3">
+                    <div class="slide-caption">Premium Quality Products</div>
+                </div>
+                <div class="slide">
+                    <img src="4.JPG" alt="pic4">
+                    <div class="slide-caption">Fresh from Farm to You</div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="slider-btn" onclick="moveSlide(-1)">❮</button>
+                <button class="slider-btn" onclick="moveSlide(1)">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Iqbal Turmeric Traders</h3>
+                <p>Your trusted source for premium quality turmeric in Changa Manga for over 10 years.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <span>fawadiqbal1245@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <span>
+                            <a href="https://wa.me/923024220370" target="_blank" style="text-decoration:none;color: white;">WhatsApp: +92 3024220370</a>,
+                            <a href="https://wa.me/923078842024" target="_blank" style="text-decoration:none;color: white;">+92 3078842024</a>
+                    </span>
+                     
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <span>Changa Manga, Pakistan</span>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Business Hours</h3>
+                <p>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                <p>Sunday: Closed</p>
+                <br>
+                <p><strong>Payment Methods:</strong></p>
+                <p>Cash & Bank Transfer</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Iqbal Turmeric Traders. All rights reserved. | Serving with trust and quality since 2015</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Image Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            const slider = document.getElementById('slider');
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        // Auto-slide
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
